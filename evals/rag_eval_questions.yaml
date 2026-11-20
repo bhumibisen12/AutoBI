@@ -1,0 +1,125 @@
+questions:
+  # --- KPI Library (8 domains) ---
+  - id: q01_sales_gross_margin
+    query: How do we calculate Gross Margin percentage for sales revenue and cost?
+    expected_sources:
+      - kpi.sales.gross_margin_pct
+    category: kpi_library
+
+  - id: q02_sales_aov
+    query: Formula for Average Order Value AOV per unique sales order
+    expected_sources:
+      - kpi.sales.average_order_value
+    category: kpi_library
+
+  - id: q03_finance_opex
+    query: What is the Operating Expense Ratio OpEx formula in finance?
+    expected_sources:
+      - kpi.finance.operating_expense_ratio
+    category: kpi_library
+
+  - id: q04_hr_attrition
+    query: How is Employee Attrition Rate defined and calculated in HR?
+    expected_sources:
+      - kpi.hr.attrition_rate
+    category: kpi_library
+
+  - id: q05_healthcare_readmission
+    query: Definition of 30-Day Readmission Rate for hospital patient visits
+    expected_sources:
+      - kpi.healthcare.readmission_rate_30d
+    category: kpi_library
+
+  - id: q06_education_graduation
+    query: How to compute student Graduation Rate for an academic cohort?
+    expected_sources:
+      - kpi.education.graduation_rate
+    category: kpi_library
+
+  - id: q07_operations_otd
+    query: What is On-Time Delivery Rate OTD for shipments in operations?
+    expected_sources:
+      - kpi.operations.on_time_delivery_rate
+    category: kpi_library
+
+  - id: q08_marketing_roas
+    query: Formula for Return on Ad Spend ROAS in marketing campaigns
+    expected_sources:
+      - kpi.marketing.return_on_ad_spend
+    category: kpi_library
+
+  - id: q09_agriculture_modal_price
+    query: How is Average Modal Commodity Price measured for agricultural mandi markets?
+    expected_sources:
+      - kpi.agriculture.average_modal_price
+    category: kpi_library
+
+  - id: q10_agriculture_yield
+    query: Crop Harvest Yield per Hectare formula for production tonnes and cultivated area
+    expected_sources:
+      - kpi.agriculture.harvest_yield_per_hectare
+    category: kpi_library
+
+  # --- DAX Patterns (9 families) ---
+  - id: q11_dax_divide
+    query: DAX pattern for safe ratio division with DIVIDE avoiding division by zero infinity
+    expected_sources:
+      - dax.divide_ratios.safe_divide
+    category: dax_patterns
+
+  - id: q12_dax_yoy
+    query: DAX Year-over-Year YoY growth percentage using SAMEPERIODLASTYEAR and dim_date
+    expected_sources:
+      - dax.time_intelligence.yoy_growth_pct
+    category: dax_patterns
+
+  - id: q13_dax_mom
+    query: DAX Month-over-Month MoM growth percentage using DATEADD
+    expected_sources:
+      - dax.time_intelligence.mom_growth_pct
+    category: dax_patterns
+
+  - id: q14_dax_rolling_avg
+    query: DAX rolling 3-month moving average using DATESINPERIOD
+    expected_sources:
+      - dax.rolling_averages.rolling_3m_avg
+    category: dax_patterns
+
+  - id: q15_dax_pct_total
+    query: DAX percent of grand total using ALLSELECTED for category contribution
+    expected_sources:
+      - dax.percent_of_total.share_of_selected
+    category: dax_patterns
+
+  - id: q16_dax_ranking
+    query: DAX category ranking with RANKX DENSE and ISINSCOPE guard
+    expected_sources:
+      - dax.ranking.rankx_dense
+    category: dax_patterns
+
+  - id: q17_dax_running_total
+    query: DAX cumulative running total over dim_date time horizon
+    expected_sources:
+      - dax.running_total.cumulative_to_date
+    category: dax_patterns
+
+  - id: q18_dax_top_n
+    query: DAX Top N contribution measure using TOPN and KEEPFILTERS
+    expected_sources:
+      - dax.top_n.top_n_contribution
+    category: dax_patterns
+
+  # --- Visual Design Rules ---
+  - id: q19_visual_max_per_page
+    query: What is the maximum number of visuals allowed per Power BI report page?
+    expected_sources:
+      - visual.page_layout_and_density#maximum_visuals_per_page
+    category: visual_rules
+
+  - id: q20_visual_colorblind_wcag
+    query: Colorblind-safe Okabe-Ito palette and WCAG AA contrast ratio accessibility rules
+    expected_sources:
+      - visual.colour_and_accessibility#colorblind_safe_palettes
+      - visual.colour_and_accessibility#contrast_and_typography_accessibility_wcag_aa
+    category: visual_rules
+

@@ -1,0 +1,545 @@
+{
+  "batch_id": "golden_batch",
+  "tables": [
+    {
+      "table_name": "customers",
+      "row_count": 3,
+      "column_count": 2,
+      "duplicate_row_count": 0,
+      "duplicate_row_percentage": 0.0,
+      "candidate_keys": [
+        "customer_id"
+      ],
+      "columns": [
+        {
+          "column_name": "customer_id",
+          "raw_dtype": "object",
+          "semantic_type": "id",
+          "row_count": 3,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 3,
+          "distinct_percentage": 100.0,
+          "numeric_stats": null,
+          "top_values": [
+            {
+              "value": "C1",
+              "count": 1,
+              "percentage": 33.33
+            },
+            {
+              "value": "C2",
+              "count": 1,
+              "percentage": 33.33
+            },
+            {
+              "value": "C3",
+              "count": 1,
+              "percentage": 33.33
+            }
+          ],
+          "date_range": null,
+          "issues": []
+        },
+        {
+          "column_name": "segment",
+          "raw_dtype": "object",
+          "semantic_type": "categorical_dimension",
+          "row_count": 3,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 2,
+          "distinct_percentage": 66.67,
+          "numeric_stats": null,
+          "top_values": [
+            {
+              "value": "Enterprise",
+              "count": 2,
+              "percentage": 66.67
+            },
+            {
+              "value": "SMB",
+              "count": 1,
+              "percentage": 33.33
+            }
+          ],
+          "date_range": null,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "table_name": "orders",
+      "row_count": 9,
+      "column_count": 11,
+      "duplicate_row_count": 1,
+      "duplicate_row_percentage": 11.11,
+      "candidate_keys": [],
+      "columns": [
+        {
+          "column_name": "order_id",
+          "raw_dtype": "object",
+          "semantic_type": "id",
+          "row_count": 9,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 8,
+          "distinct_percentage": 88.89,
+          "numeric_stats": null,
+          "top_values": [
+            {
+              "value": "ORD-8",
+              "count": 2,
+              "percentage": 22.22
+            },
+            {
+              "value": "ORD-1",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "ORD-2",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "ORD-3",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "ORD-4",
+              "count": 1,
+              "percentage": 11.11
+            }
+          ],
+          "date_range": null,
+          "issues": []
+        },
+        {
+          "column_name": "customer_id",
+          "raw_dtype": "object",
+          "semantic_type": "id",
+          "row_count": 9,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 3,
+          "distinct_percentage": 33.33,
+          "numeric_stats": null,
+          "top_values": [
+            {
+              "value": "C1",
+              "count": 3,
+              "percentage": 33.33
+            },
+            {
+              "value": "C2",
+              "count": 3,
+              "percentage": 33.33
+            },
+            {
+              "value": "C3",
+              "count": 3,
+              "percentage": 33.33
+            }
+          ],
+          "date_range": null,
+          "issues": []
+        },
+        {
+          "column_name": "order_date",
+          "raw_dtype": "object",
+          "semantic_type": "date_time",
+          "row_count": 9,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 8,
+          "distinct_percentage": 88.89,
+          "numeric_stats": null,
+          "top_values": [
+            {
+              "value": "2025-04-01",
+              "count": 2,
+              "percentage": 22.22
+            },
+            {
+              "value": "2025-01-05",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "2025-01-12",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "2025-02-01",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "2025-02-15",
+              "count": 1,
+              "percentage": 11.11
+            }
+          ],
+          "date_range": {
+            "min_date": "2025-01-05T00:00:00",
+            "max_date": "2025-04-01T00:00:00",
+            "span_days": 86
+          },
+          "issues": []
+        },
+        {
+          "column_name": "region",
+          "raw_dtype": "object",
+          "semantic_type": "categorical_dimension",
+          "row_count": 9,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 4,
+          "distinct_percentage": 44.44,
+          "numeric_stats": null,
+          "top_values": [
+            {
+              "value": "North",
+              "count": 3,
+              "percentage": 33.33
+            },
+            {
+              "value": "East",
+              "count": 2,
+              "percentage": 22.22
+            },
+            {
+              "value": "South",
+              "count": 2,
+              "percentage": 22.22
+            },
+            {
+              "value": "West",
+              "count": 2,
+              "percentage": 22.22
+            }
+          ],
+          "date_range": null,
+          "issues": []
+        },
+        {
+          "column_name": "is_priority",
+          "raw_dtype": "object",
+          "semantic_type": "boolean",
+          "row_count": 9,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 2,
+          "distinct_percentage": 22.22,
+          "numeric_stats": null,
+          "top_values": [
+            {
+              "value": "Yes",
+              "count": 5,
+              "percentage": 55.56
+            },
+            {
+              "value": "No",
+              "count": 4,
+              "percentage": 44.44
+            }
+          ],
+          "date_range": null,
+          "issues": []
+        },
+        {
+          "column_name": "unit_count",
+          "raw_dtype": "int64",
+          "semantic_type": "numeric_measure",
+          "row_count": 9,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 4,
+          "distinct_percentage": 44.44,
+          "numeric_stats": {
+            "min": 10.0,
+            "max": 500.0,
+            "mean": 119.5556,
+            "std": 215.6931,
+            "q25": 10.0,
+            "median": 11.0,
+            "q75": 12.0,
+            "iqr": 2.0,
+            "iqr_outlier_count": 2,
+            "robust_z_outlier_count": 2
+          },
+          "top_values": [
+            {
+              "value": "10",
+              "count": 3,
+              "percentage": 33.33
+            },
+            {
+              "value": "11",
+              "count": 2,
+              "percentage": 22.22
+            },
+            {
+              "value": "12",
+              "count": 2,
+              "percentage": 22.22
+            },
+            {
+              "value": "500",
+              "count": 2,
+              "percentage": 22.22
+            }
+          ],
+          "date_range": null,
+          "issues": [
+            {
+              "issue_type": "outliers_iqr",
+              "severity": "warning",
+              "description": "2 IQR outlier(s) detected in 'unit_count'.",
+              "affected_count": 2,
+              "affected_percentage": 22.22
+            },
+            {
+              "issue_type": "outliers_robust_z",
+              "severity": "warning",
+              "description": "2 robust z-score outlier(s) detected in 'unit_count'.",
+              "affected_count": 2,
+              "affected_percentage": 22.22
+            }
+          ]
+        },
+        {
+          "column_name": "revenue_usd",
+          "raw_dtype": "object",
+          "semantic_type": "currency",
+          "row_count": 9,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 8,
+          "distinct_percentage": 88.89,
+          "numeric_stats": {
+            "min": 100.0,
+            "max": 140.0,
+            "mean": 120.6111,
+            "std": 14.4564,
+            "q25": 110.0,
+            "median": 120.5,
+            "q75": 130.0,
+            "iqr": 20.0,
+            "iqr_outlier_count": 0,
+            "robust_z_outlier_count": 0
+          },
+          "top_values": [
+            {
+              "value": "$140.00",
+              "count": 2,
+              "percentage": 22.22
+            },
+            {
+              "value": "$100.00",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "$105.00",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "$110.00",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "$115.00",
+              "count": 1,
+              "percentage": 11.11
+            }
+          ],
+          "date_range": null,
+          "issues": []
+        },
+        {
+          "column_name": "discount_pct",
+          "raw_dtype": "object",
+          "semantic_type": "percent",
+          "row_count": 9,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 4,
+          "distinct_percentage": 44.44,
+          "numeric_stats": {
+            "min": 0.0,
+            "max": 15.0,
+            "mean": 7.2222,
+            "std": 5.6519,
+            "q25": 5.0,
+            "median": 5.0,
+            "q75": 10.0,
+            "iqr": 5.0,
+            "iqr_outlier_count": 0,
+            "robust_z_outlier_count": 0
+          },
+          "top_values": [
+            {
+              "value": "5%",
+              "count": 3,
+              "percentage": 33.33
+            },
+            {
+              "value": "0%",
+              "count": 2,
+              "percentage": 22.22
+            },
+            {
+              "value": "10%",
+              "count": 2,
+              "percentage": 22.22
+            },
+            {
+              "value": "15%",
+              "count": 2,
+              "percentage": 22.22
+            }
+          ],
+          "date_range": null,
+          "issues": []
+        },
+        {
+          "column_name": "mixed_score",
+          "raw_dtype": "object",
+          "semantic_type": "categorical_dimension",
+          "row_count": 9,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 8,
+          "distinct_percentage": 88.89,
+          "numeric_stats": null,
+          "top_values": [
+            {
+              "value": "60",
+              "count": 2,
+              "percentage": 22.22
+            },
+            {
+              "value": "10",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "20",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "30",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "40",
+              "count": 1,
+              "percentage": 11.11
+            }
+          ],
+          "date_range": null,
+          "issues": [
+            {
+              "issue_type": "mixed_types",
+              "severity": "warning",
+              "description": "Mixed value types observed (numeric=7, text=2).",
+              "affected_count": 2,
+              "affected_percentage": 22.22
+            }
+          ]
+        },
+        {
+          "column_name": "constant_tag",
+          "raw_dtype": "object",
+          "semantic_type": "categorical_dimension",
+          "row_count": 9,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 1,
+          "distinct_percentage": 11.11,
+          "numeric_stats": null,
+          "top_values": [
+            {
+              "value": "SYNTHETIC",
+              "count": 9,
+              "percentage": 100.0
+            }
+          ],
+          "date_range": null,
+          "issues": [
+            {
+              "issue_type": "constant_column",
+              "severity": "info",
+              "description": "Column 'constant_tag' has 1 distinct non-null value.",
+              "affected_count": 9,
+              "affected_percentage": 100.0
+            }
+          ]
+        },
+        {
+          "column_name": "review_notes",
+          "raw_dtype": "object",
+          "semantic_type": "free_text",
+          "row_count": 9,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 8,
+          "distinct_percentage": 88.89,
+          "numeric_stats": null,
+          "top_values": [
+            {
+              "value": "Expedited freight approved due to tight regional launch window.",
+              "count": 2,
+              "percentage": 22.22
+            },
+            {
+              "value": "Account manager confirmed renewal discussion for next quarter.",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "Client appreciated proactive status updates throughout transit.",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "Customer reported smooth onboarding and timely shipment of items.",
+              "count": 1,
+              "percentage": 11.11
+            },
+            {
+              "value": "Followed up with support team regarding invoice copy and terms.",
+              "count": 1,
+              "percentage": 11.11
+            }
+          ],
+          "date_range": null,
+          "issues": []
+        }
+      ]
+    }
+  ],
+  "candidate_relationships": [
+    {
+      "left_table": "customers",
+      "left_column": "customer_id",
+      "right_table": "orders",
+      "right_column": "customer_id",
+      "name_similarity": 1.0,
+      "value_overlap": 1.0,
+      "confidence": 1.0,
+      "cardinality_hint": "one_to_many"
+    }
+  ],
+  "summary_warnings": [
+    "Table 'orders' contains 1 duplicate row(s)."
+  ]
+}

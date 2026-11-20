@@ -1,0 +1,24 @@
+pattern_family: rolling_averages
+patterns:
+  - id: dax.rolling_averages.rolling_3m_avg
+    pattern_family: rolling_averages
+    name: Rolling 3-Month Moving Average
+    plain_language_definition: Smooths short-term volatility by averaging a metric across the trailing three calendar months ending at the latest date in context.
+    dax_template: |
+      {MeasureName} Rolling 3M Avg =
+      VAR LastVisibleDate = MAX( 'dim_date'[date] )
+      VAR PeriodWindow =
+          DATESINPERIOD( 'dim_date'[date], LastVisibleDate, -3, MONTH )
+      RETURN
+      AVERAGEX(
+          VALUES( 'dim_date'[year_month] ),
+          CALCULATE( [{BaseMeasure}], PeriodWindow )
+      )
+    sql_verification_pattern: "AVG(monthly_val) OVER (ORDER BY year_month ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)"
+    required_column_roles:
+      - measure
+      - date:dim_date
+    pitfalls:
+      - Ensure 'dim_date' contains every calendar day without gaps for DATESINPERIOD to work accurately.
+    needs_human_review: true
+

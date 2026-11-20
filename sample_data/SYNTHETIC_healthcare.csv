@@ -1,0 +1,31 @@
+visit_id,visit_date,department,visit_type,age_group,length_of_stay_days,billed_amount_usd,readmitted_30d,satisfaction_score,data_origin
+SYN-VIS-5001,2025-01-05,Cardiology,Outpatient,18-34,0,600.0,No,3.8,SYNTHETIC
+SYN-VIS-5002,2025-02-09,Orthopedics,Emergency,35-54,3,4230.0,No,4.2,SYNTHETIC
+SYN-VIS-5003,2025-03-13,Pediatrics,Inpatient,55-74,4,5560.0,No,4.6,SYNTHETIC
+SYN-VIS-5004,2025-04-17,Emergency,Outpatient,75+,0,1140.0,No,3.4,SYNTHETIC
+SYN-VIS-5005,2025-05-21,Internal Medicine,Emergency,0-17,6,7320.0,No,3.8,SYNTHETIC
+SYN-VIS-5006,2025-06-25,Cardiology,Inpatient,18-34,1,1750.0,Yes,4.2,SYNTHETIC
+SYN-VIS-5007,2025-07-02,Orthopedics,Outpatient,35-54,0,780.0,No,4.6,SYNTHETIC
+SYN-VIS-5008,2025-08-06,Pediatrics,Emergency,55-74,3,4410.0,No,3.4,SYNTHETIC
+SYN-VIS-5009,2025-09-10,Emergency,Inpatient,75+,4,5740.0,No,3.8,SYNTHETIC
+SYN-VIS-5010,2025-10-14,Internal Medicine,Outpatient,0-17,0,420.0,No,4.2,SYNTHETIC
+SYN-VIS-5011,2025-11-18,Cardiology,Emergency,18-34,6,7500.0,No,4.6,SYNTHETIC
+SYN-VIS-5012,2025-12-22,Orthopedics,Inpatient,35-54,1,1930.0,Yes,3.4,SYNTHETIC
+SYN-VIS-5013,2025-01-26,Pediatrics,Outpatient,55-74,0,960.0,No,3.8,SYNTHETIC
+SYN-VIS-5014,2025-02-03,Emergency,Emergency,75+,3,4590.0,No,4.2,SYNTHETIC
+SYN-VIS-5015,2025-03-07,Internal Medicine,Inpatient,0-17,4,5020.0,No,4.6,SYNTHETIC
+SYN-VIS-5016,2025-04-11,Cardiology,Outpatient,18-34,0,600.0,No,3.4,SYNTHETIC
+SYN-VIS-5017,2025-05-15,Orthopedics,Emergency,35-54,6,7680.0,No,3.8,SYNTHETIC
+SYN-VIS-5018,2025-06-19,Pediatrics,Inpatient,55-74,1,2110.0,Yes,4.2,SYNTHETIC
+SYN-VIS-5019,2025-07-23,Emergency,Outpatient,75+,0,1140.0,No,4.6,SYNTHETIC
+SYN-VIS-5020,2025-08-27,Internal Medicine,Emergency,0-17,3,3870.0,No,3.4,SYNTHETIC
+SYN-VIS-5021,2025-09-04,Cardiology,Inpatient,18-34,4,5200.0,No,3.8,SYNTHETIC
+SYN-VIS-5022,2025-10-08,Orthopedics,Outpatient,35-54,0,780.0,No,4.2,SYNTHETIC
+SYN-VIS-5023,2025-11-12,Pediatrics,Emergency,55-74,6,7860.0,No,4.6,SYNTHETIC
+SYN-VIS-5024,2025-12-16,Emergency,Inpatient,75+,1,2290.0,Yes,3.4,SYNTHETIC
+SYN-VIS-5025,2025-01-20,Internal Medicine,Outpatient,0-17,0,420.0,No,3.8,SYNTHETIC
+SYN-VIS-5026,2025-02-24,Cardiology,Emergency,18-34,3,4050.0,No,4.2,SYNTHETIC
+SYN-VIS-5027,2025-03-01,Orthopedics,Inpatient,35-54,4,5380.0,No,4.6,SYNTHETIC
+SYN-VIS-5028,2025-04-05,Pediatrics,Outpatient,55-74,0,960.0,No,3.4,SYNTHETIC
+SYN-VIS-5029,2025-05-09,Emergency,Emergency,75+,6,8040.0,No,3.8,SYNTHETIC
+SYN-VIS-5030,2025-06-13,Internal Medicine,Inpatient,0-17,1,1570.0,Yes,4.2,SYNTHETIC

@@ -1,0 +1,45 @@
+domain: operations
+kpis:
+  - id: kpi.operations.on_time_delivery_rate
+    domain: operations
+    name: On-Time Delivery Rate (OTD)
+    plain_language_definition: Percentage of customer shipments or orders delivered on or before the promised delivery date.
+    formula: DIVIDE(COUNTROWS(FILTER(shipments, delivered_on_time = TRUE)), DISTINCTCOUNT(shipment_id), 0)
+    required_column_roles:
+      - id:shipment_id
+      - dimension:delivered_on_time
+    format_hint: percent
+    needs_human_review: true
+
+  - id: kpi.operations.inventory_turnover
+    domain: operations
+    name: Inventory Turnover
+    plain_language_definition: Number of times stock is sold and replenished over a period, measured as cost of goods sold divided by average inventory value.
+    formula: DIVIDE(SUM(cost_of_goods_sold), AVERAGE(inventory_value), 0)
+    required_column_roles:
+      - measure:cost_of_goods_sold
+      - measure:inventory_value
+    format_hint: ratio
+    needs_human_review: true
+
+  - id: kpi.operations.defect_rate
+    domain: operations
+    name: Manufacturing Defect Rate
+    plain_language_definition: Percentage of produced or inspected units found to be defective during quality assurance.
+    formula: DIVIDE(SUM(defective_units), SUM(total_units_inspected), 0)
+    required_column_roles:
+      - measure:defective_units
+      - measure:total_units_inspected
+    format_hint: percent
+    needs_human_review: true
+
+  - id: kpi.operations.order_fulfillment_cycle_time
+    domain: operations
+    name: Order Fulfillment Cycle Time
+    plain_language_definition: Average elapsed time in hours or days from order receipt to final customer delivery.
+    formula: AVERAGE(fulfillment_days)
+    required_column_roles:
+      - measure:fulfillment_days
+    format_hint: decimal
+    needs_human_review: true
+

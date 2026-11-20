@@ -1,0 +1,16 @@
+pattern_family: distinct_count
+patterns:
+  - id: dax.distinct_count.unique_entities
+    pattern_family: distinct_count
+    name: Distinct Entity Count (DISTINCTCOUNT)
+    plain_language_definition: Counts how many unique non-blank identifiers (such as unique customers, orders, employees, or patients) appear in the active filter context.
+    dax_template: |
+      Unique {EntityName} =
+      DISTINCTCOUNT( '{FactTable}'[{EntityIdColumn}] )
+    sql_verification_pattern: "SELECT COUNT(DISTINCT {EntityIdColumn}) FROM {FactTable}"
+    required_column_roles:
+      - id
+    pitfalls:
+      - Distinct counts are non-additive across categories because the same customer can appear in multiple categories.
+    needs_human_review: true
+

@@ -1,0 +1,30 @@
+pattern_family: totals
+patterns:
+  - id: dax.totals.sum_measure
+    pattern_family: totals
+    name: Basic Additive Total (SUM)
+    plain_language_definition: Adds up every numeric value in a single fact-table column under the active report filter context.
+    dax_template: |
+      Total {MeasureName} =
+      SUM( '{FactTable}'[{MeasureColumn}] )
+    sql_verification_pattern: "SELECT SUM({MeasureColumn}) FROM {FactTable}"
+    required_column_roles:
+      - measure
+    pitfalls:
+      - Avoid SUM on non-additive ratios or unit prices; sum base numerator and denominator columns instead.
+    needs_human_review: true
+
+  - id: dax.totals.row_count
+    pattern_family: totals
+    name: Table Row Count (COUNTROWS)
+    plain_language_definition: Counts the total number of visible records in a fact or dimension table under current filters.
+    dax_template: |
+      Total {EntityName} =
+      COUNTROWS( '{FactTable}' )
+    sql_verification_pattern: "SELECT COUNT(*) FROM {FactTable}"
+    required_column_roles:
+      - id
+    pitfalls:
+      - COUNTROWS counts every row including nulls in non-key columns; use DISTINCTCOUNT for unique entities.
+    needs_human_review: true
+

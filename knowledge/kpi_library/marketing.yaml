@@ -1,0 +1,46 @@
+domain: marketing
+kpis:
+  - id: kpi.marketing.conversion_rate
+    domain: marketing
+    name: Campaign Conversion Rate
+    plain_language_definition: Percentage of ad clicks, website sessions, or leads that complete the desired conversion action.
+    formula: DIVIDE(SUM(conversions), SUM(clicks), 0)
+    required_column_roles:
+      - measure:conversions
+      - measure:clicks
+    format_hint: percent
+    needs_human_review: true
+
+  - id: kpi.marketing.customer_acquisition_cost
+    domain: marketing
+    name: Customer Acquisition Cost (CAC)
+    plain_language_definition: Average total marketing and campaign spend required to acquire one new paying customer.
+    formula: DIVIDE(SUM(ad_spend), DISTINCTCOUNT(new_customer_id), 0)
+    required_column_roles:
+      - measure:ad_spend
+      - id:new_customer_id
+    format_hint: currency
+    needs_human_review: true
+
+  - id: kpi.marketing.return_on_ad_spend
+    domain: marketing
+    name: Return on Ad Spend (ROAS)
+    plain_language_definition: Revenue dollars generated for every dollar spent on advertising campaigns.
+    formula: DIVIDE(SUM(attributed_revenue), SUM(ad_spend), 0)
+    required_column_roles:
+      - measure:attributed_revenue
+      - measure:ad_spend
+    format_hint: ratio
+    needs_human_review: true
+
+  - id: kpi.marketing.click_through_rate
+    domain: marketing
+    name: Click-Through Rate (CTR)
+    plain_language_definition: Percentage of ad impressions that resulted in a user clicking the advertisement.
+    formula: DIVIDE(SUM(clicks), SUM(impressions), 0)
+    required_column_roles:
+      - measure:clicks
+      - measure:impressions
+    format_hint: percent
+    needs_human_review: true
+

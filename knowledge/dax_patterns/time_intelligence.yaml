@@ -1,0 +1,46 @@
+pattern_family: time_intelligence
+patterns:
+  - id: dax.time_intelligence.yoy_growth_pct
+    pattern_family: time_intelligence
+    name: Year-over-Year (YoY) Growth %
+    plain_language_definition: Measures the percentage increase or decrease of a metric compared to the exact same period in the previous calendar year using the dim_date table.
+    dax_template: |
+      {MeasureName} YoY % =
+      VAR CurrentValue = [{BaseMeasure}]
+      VAR PriorYearValue =
+          CALCULATE(
+              [{BaseMeasure}],
+              SAMEPERIODLASTYEAR( 'dim_date'[date] )
+          )
+      RETURN
+      DIVIDE( CurrentValue - PriorYearValue, PriorYearValue, BLANK() )
+    sql_verification_pattern: "Compare period sum against prior year same period joined on dim_date"
+    required_column_roles:
+      - measure
+      - date:dim_date
+    pitfalls:
+      - Requires a contiguous Calendar/Date table (dim_date) marked as a date table with a relationship to the fact table.
+    needs_human_review: true
+
+  - id: dax.time_intelligence.mom_growth_pct
+    pattern_family: time_intelligence
+    name: Month-over-Month (MoM) Growth %
+    plain_language_definition: Measures the percentage change of a metric in the current month compared to the immediately preceding month using DATEADD on dim_date.
+    dax_template: |
+      {MeasureName} MoM % =
+      VAR CurrentValue = [{BaseMeasure}]
+      VAR PriorMonthValue =
+          CALCULATE(
+              [{BaseMeasure}],
+              DATEADD( 'dim_date'[date], -1, MONTH )
+          )
+      RETURN
+      DIVIDE( CurrentValue - PriorMonthValue, PriorMonthValue, BLANK() )
+    sql_verification_pattern: "Use LAG(monthly_val) OVER (ORDER BY year_month) in DuckDB"
+    required_column_roles:
+      - measure
+      - date:dim_date
+    pitfalls:
+      - Always pass the contiguous 'dim_date'[date] column to DATEADD, never a fact table date column.
+    needs_human_review: true
+

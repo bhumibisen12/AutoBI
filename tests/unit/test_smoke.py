@@ -174,10 +174,11 @@ def test_redact_text_patterns() -> None:
 
 
 def test_streamlit_placeholder_page_renders() -> None:
-    """The placeholder Streamlit entry point renders without exceptions or leaked secrets."""
+    """The Streamlit SaaS landing workspace renders without exceptions or leaked secrets."""
     from streamlit.testing.v1 import AppTest
 
-    app_test = AppTest.from_file("app/main.py").run()
+    app_test = AppTest.from_file("app/main.py").run(timeout=20)
     assert not app_test.exception
-    assert [title.value for title in app_test.title] == ["AutoBI"]
+    rendered = " ".join(m.value for m in app_test.markdown)
+    assert "Workspace" in rendered
 

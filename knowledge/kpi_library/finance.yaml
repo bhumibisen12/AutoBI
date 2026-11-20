@@ -1,0 +1,47 @@
+domain: finance
+kpis:
+  - id: kpi.finance.net_profit_margin
+    domain: finance
+    name: Net Profit Margin
+    plain_language_definition: Percentage of total revenue remaining as net income after deducting all operating costs, interest, and taxes.
+    formula: DIVIDE(SUM(net_income), SUM(revenue), 0)
+    required_column_roles:
+      - measure:net_income
+      - measure:revenue
+    format_hint: percent
+    needs_human_review: true
+
+  - id: kpi.finance.operating_expense_ratio
+    domain: finance
+    name: Operating Expense Ratio (OpEx Ratio)
+    plain_language_definition: Portion of revenue consumed by day-to-day operating expenses; lower values indicate stronger cost efficiency.
+    formula: DIVIDE(SUM(operating_expense), SUM(revenue), 0)
+    required_column_roles:
+      - measure:operating_expense
+      - measure:revenue
+    format_hint: percent
+    needs_human_review: true
+
+  - id: kpi.finance.budget_variance_pct
+    domain: finance
+    name: Budget Variance %
+    plain_language_definition: Percentage difference between actual financial spend or revenue and the planned budget target.
+    formula: DIVIDE(SUM(actual_amount) - SUM(budget_amount), SUM(budget_amount), 0)
+    required_column_roles:
+      - measure:actual_amount
+      - measure:budget_amount
+    format_hint: percent
+    needs_human_review: true
+
+  - id: kpi.finance.ebitda
+    domain: finance
+    name: EBITDA
+    plain_language_definition: Earnings before interest, taxes, depreciation, and amortization, measuring core operating profitability.
+    formula: SUM(operating_income) + SUM(depreciation) + SUM(amortization)
+    required_column_roles:
+      - measure:operating_income
+      - measure:depreciation
+      - measure:amortization
+    format_hint: currency
+    needs_human_review: true
+

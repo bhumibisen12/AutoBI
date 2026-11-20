@@ -1,0 +1,37 @@
+order_id,order_date,region,category,product,quantity,unit_price,revenue,cost,channel,data_origin
+SYN-ORD-1001,2025-01-06,North,Hardware,Laptop Pro 14,2,1200.0,2400.0,1560.0,Partner,SYNTHETIC
+SYN-ORD-1002,2025-02-11,South,Hardware,Monitor 27in,3,340.0,1020.0,630.0,Online,SYNTHETIC
+SYN-ORD-1003,2025-03-16,East,Software,Analytics Suite,4,450.0,1800.0,360.0,Direct,SYNTHETIC
+SYN-ORD-1004,2025-04-21,West,Software,Cloud Sync Seat,5,120.0,600.0,125.0,Partner,SYNTHETIC
+SYN-ORD-1005,2025-05-26,North,Services,Onboarding Pack,1,800.0,800.0,320.0,Online,SYNTHETIC
+SYN-ORD-1006,2025-06-04,South,Hardware,Laptop Pro 14,2,1200.0,2400.0,1560.0,Direct,SYNTHETIC
+SYN-ORD-1007,2025-07-09,East,Hardware,Monitor 27in,3,340.0,1020.0,630.0,Partner,SYNTHETIC
+SYN-ORD-1008,2025-08-14,West,Software,Analytics Suite,4,450.0,1800.0,360.0,Online,SYNTHETIC
+SYN-ORD-1009,2025-09-19,North,Software,Cloud Sync Seat,5,120.0,600.0,125.0,Direct,SYNTHETIC
+SYN-ORD-1010,2025-10-24,South,Services,Onboarding Pack,1,800.0,800.0,320.0,Partner,SYNTHETIC
+SYN-ORD-1011,2025-11-02,East,Hardware,Laptop Pro 14,2,1200.0,2400.0,1560.0,Online,SYNTHETIC
+SYN-ORD-1012,2025-12-07,West,Hardware,Monitor 27in,3,340.0,1020.0,630.0,Direct,SYNTHETIC
+SYN-ORD-1013,2025-01-12,North,Software,Analytics Suite,4,450.0,1800.0,360.0,Partner,SYNTHETIC
+SYN-ORD-1014,2025-02-17,South,Software,Cloud Sync Seat,5,120.0,600.0,125.0,Online,SYNTHETIC
+SYN-ORD-1015,2025-03-22,East,Services,Onboarding Pack,1,800.0,800.0,320.0,Direct,SYNTHETIC
+SYN-ORD-1016,2025-04-27,West,Hardware,Laptop Pro 14,2,1200.0,2400.0,1560.0,Partner,SYNTHETIC
+SYN-ORD-1017,2025-05-05,North,Hardware,Monitor 27in,3,340.0,1020.0,630.0,Online,SYNTHETIC
+SYN-ORD-1018,2025-06-10,South,Software,Analytics Suite,4,450.0,1800.0,360.0,Direct,SYNTHETIC
+SYN-ORD-1019,2025-07-15,East,Software,Cloud Sync Seat,5,120.0,600.0,125.0,Partner,SYNTHETIC
+SYN-ORD-1020,2025-08-20,West,Services,Onboarding Pack,1,800.0,800.0,320.0,Online,SYNTHETIC
+SYN-ORD-1021,2025-09-25,North,Hardware,Laptop Pro 14,2,1200.0,2400.0,1560.0,Direct,SYNTHETIC
+SYN-ORD-1022,2025-10-03,South,Hardware,Monitor 27in,3,340.0,1020.0,630.0,Partner,SYNTHETIC
+SYN-ORD-1023,2025-11-08,East,Software,Analytics Suite,4,450.0,1800.0,360.0,Online,SYNTHETIC
+SYN-ORD-1024,2025-12-13,West,Software,Cloud Sync Seat,5,120.0,600.0,125.0,Direct,SYNTHETIC
+SYN-ORD-1025,2025-01-18,North,Services,Onboarding Pack,1,800.0,800.0,320.0,Partner,SYNTHETIC
+SYN-ORD-1026,2025-02-23,South,Hardware,Laptop Pro 14,2,1200.0,2400.0,1560.0,Online,SYNTHETIC
+SYN-ORD-1027,2025-03-01,East,Hardware,Monitor 27in,3,340.0,1020.0,630.0,Direct,SYNTHETIC
+SYN-ORD-1028,2025-04-06,West,Software,Analytics Suite,4,450.0,1800.0,360.0,Partner,SYNTHETIC
+SYN-ORD-1029,2025-05-11,North,Software,Cloud Sync Seat,5,120.0,600.0,125.0,Online,SYNTHETIC
+SYN-ORD-1030,2025-06-16,South,Services,Onboarding Pack,1,800.0,800.0,320.0,Direct,SYNTHETIC
+SYN-ORD-1031,2025-07-21,East,Hardware,Laptop Pro 14,2,1200.0,2400.0,1560.0,Partner,SYNTHETIC
+SYN-ORD-1032,2025-08-26,West,Hardware,Monitor 27in,3,340.0,1020.0,630.0,Online,SYNTHETIC
+SYN-ORD-1033,2025-09-04,North,Software,Analytics Suite,4,450.0,1800.0,360.0,Direct,SYNTHETIC
+SYN-ORD-1034,2025-10-09,South,Software,Cloud Sync Seat,5,120.0,600.0,125.0,Partner,SYNTHETIC
+SYN-ORD-1035,2025-11-14,East,Services,Onboarding Pack,1,800.0,800.0,320.0,Online,SYNTHETIC
+SYN-ORD-1036,2025-12-19,West,Hardware,Laptop Pro 14,2,1200.0,2400.0,1560.0,Direct,SYNTHETIC

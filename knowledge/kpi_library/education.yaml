@@ -1,0 +1,46 @@
+domain: education
+kpis:
+  - id: kpi.education.graduation_rate
+    domain: education
+    name: Graduation Rate
+    plain_language_definition: Percentage of enrolled students in a cohort who successfully complete their degree or program on time.
+    formula: DIVIDE(COUNTROWS(FILTER(students, graduated_flag = TRUE)), DISTINCTCOUNT(student_id), 0)
+    required_column_roles:
+      - id:student_id
+      - dimension:graduated_flag
+    format_hint: percent
+    needs_human_review: true
+
+  - id: kpi.education.average_attendance_rate
+    domain: education
+    name: Average Attendance Rate
+    plain_language_definition: Share of scheduled class sessions attended by students across courses or grade levels.
+    formula: DIVIDE(SUM(sessions_attended), SUM(sessions_scheduled), 0)
+    required_column_roles:
+      - measure:sessions_attended
+      - measure:sessions_scheduled
+    format_hint: percent
+    needs_human_review: true
+
+  - id: kpi.education.course_pass_rate
+    domain: education
+    name: Course Pass Rate
+    plain_language_definition: Proportion of student course enrollments resulting in a passing grade.
+    formula: DIVIDE(COUNTROWS(FILTER(enrollments, passed_flag = TRUE)), COUNTROWS(enrollments), 0)
+    required_column_roles:
+      - id:enrollment_id
+      - dimension:passed_flag
+    format_hint: percent
+    needs_human_review: true
+
+  - id: kpi.education.student_faculty_ratio
+    domain: education
+    name: Student-to-Faculty Ratio
+    plain_language_definition: Number of enrolled students per active teaching faculty member.
+    formula: DIVIDE(DISTINCTCOUNT(student_id), DISTINCTCOUNT(faculty_id), 0)
+    required_column_roles:
+      - id:student_id
+      - id:faculty_id
+    format_hint: ratio
+    needs_human_review: true
+

@@ -1,0 +1,22 @@
+pattern_family: divide_ratios
+patterns:
+  - id: dax.divide_ratios.safe_divide
+    pattern_family: divide_ratios
+    name: Safe Ratio with DIVIDE
+    plain_language_definition: Divides a numerator measure by a denominator measure safely so zero or blank denominators return zero instead of infinity or NaN errors.
+    dax_template: |
+      {RatioName} =
+      DIVIDE(
+          [{NumeratorMeasure}],
+          [{DenominatorMeasure}],
+          0
+      )
+    sql_verification_pattern: "SELECT CASE WHEN SUM({Denom}) = 0 THEN 0 ELSE SUM({Num}) * 1.0 / SUM({Denom}) END FROM {FactTable}"
+    required_column_roles:
+      - measure:numerator
+      - measure:denominator
+    pitfalls:
+      - Never use the raw '/' operator in DAX measures because division by zero produces Infinity in visuals.
+      - Always aggregate numerator and denominator before dividing rather than averaging row-level ratios.
+    needs_human_review: true
+

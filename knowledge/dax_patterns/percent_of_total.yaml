@@ -1,0 +1,24 @@
+pattern_family: percent_of_total
+patterns:
+  - id: dax.percent_of_total.share_of_selected
+    pattern_family: percent_of_total
+    name: Percent of Total (% of Grand Total)
+    plain_language_definition: Calculates each category's percentage contribution to the overall total across all currently selected filter values.
+    dax_template: |
+      {MeasureName} % of Total =
+      VAR CurrentValue = [{BaseMeasure}]
+      VAR AllSelectedTotal =
+          CALCULATE(
+              [{BaseMeasure}],
+              ALLSELECTED( '{DimTable}'[{CategoryColumn}] )
+          )
+      RETURN
+      DIVIDE( CurrentValue, AllSelectedTotal, 0 )
+    sql_verification_pattern: "SELECT cat, SUM(val) * 1.0 / SUM(SUM(val)) OVER () FROM {FactTable} GROUP BY cat"
+    required_column_roles:
+      - measure
+      - dimension
+    pitfalls:
+      - Use ALLSELECTED instead of ALL when external page slicers should still filter the denominator total.
+    needs_human_review: true
+

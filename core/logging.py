@@ -110,13 +110,18 @@ class SecretRedactionFilter(logging.Filter):
 
     def filter(self, record: logging.LogRecord) -> bool:
         """Redact sensitive values in place and always allow the sanitized record through."""
-        if isinstance(record.msg, str):
+        if record.args:
+            redacted_args = redact_value(record.args, self._secrets)
+            try:
+                rendered = str(record.msg) % redacted_args
+            except (TypeError, ValueError):
+                rendered = f"{record.msg} {redacted_args}"
+            record.msg = redact_text(rendered, self._secrets)
+            record.args = None
+        elif isinstance(record.msg, str):
             record.msg = redact_text(record.msg, self._secrets)
         else:
             record.msg = redact_value(record.msg, self._secrets)
-
-        if record.args:
-            record.args = redact_value(record.args, self._secrets)
 
         if record.exc_text:
             record.exc_text = redact_text(record.exc_text, self._secrets)

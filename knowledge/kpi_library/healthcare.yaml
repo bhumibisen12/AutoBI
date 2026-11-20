@@ -1,0 +1,44 @@
+domain: healthcare
+kpis:
+  - id: kpi.healthcare.readmission_rate_30d
+    domain: healthcare
+    name: 30-Day Readmission Rate
+    plain_language_definition: Percentage of discharged patient visits that resulted in an unplanned hospital readmission within 30 days.
+    formula: DIVIDE(COUNTROWS(FILTER(visits, readmitted_30d = TRUE)), DISTINCTCOUNT(visit_id), 0)
+    required_column_roles:
+      - id:visit_id
+      - dimension:readmitted_30d
+    format_hint: percent
+    needs_human_review: true
+
+  - id: kpi.healthcare.average_length_of_stay
+    domain: healthcare
+    name: Average Length of Stay (ALOS)
+    plain_language_definition: Average number of inpatient days a patient stays in the hospital per admission.
+    formula: AVERAGE(length_of_stay_days)
+    required_column_roles:
+      - measure:length_of_stay_days
+    format_hint: decimal
+    needs_human_review: true
+
+  - id: kpi.healthcare.average_billed_per_visit
+    domain: healthcare
+    name: Average Billed Amount per Visit
+    plain_language_definition: Mean total healthcare charge billed per clinical encounter or hospital visit.
+    formula: DIVIDE(SUM(billed_amount), DISTINCTCOUNT(visit_id), 0)
+    required_column_roles:
+      - measure:billed_amount
+      - id:visit_id
+    format_hint: currency
+    needs_human_review: true
+
+  - id: kpi.healthcare.patient_satisfaction_score
+    domain: healthcare
+    name: Patient Satisfaction Score
+    plain_language_definition: Average post-visit patient experience survey score across hospital departments.
+    formula: AVERAGE(satisfaction_score)
+    required_column_roles:
+      - measure:satisfaction_score
+    format_hint: decimal
+    needs_human_review: true
+

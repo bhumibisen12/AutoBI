@@ -1,0 +1,47 @@
+domain: agriculture_commodity_prices
+kpis:
+  - id: kpi.agriculture.average_modal_price
+    domain: agriculture_commodity_prices
+    name: Average Modal Commodity Price
+    plain_language_definition: Mean prevailing modal market (mandi) selling price per quintal or metric ton for an agricultural commodity.
+    formula: AVERAGE(modal_price)
+    required_column_roles:
+      - measure:modal_price
+      - dimension:commodity
+    format_hint: currency
+    needs_human_review: true
+
+  - id: kpi.agriculture.price_spread_pct
+    domain: agriculture_commodity_prices
+    name: Commodity Price Spread %
+    plain_language_definition: Intra-period market volatility measured as the percentage difference between maximum and minimum commodity prices relative to the modal price.
+    formula: DIVIDE(MAX(max_price) - MIN(min_price), AVERAGE(modal_price), 0)
+    required_column_roles:
+      - measure:max_price
+      - measure:min_price
+      - measure:modal_price
+    format_hint: percent
+    needs_human_review: true
+
+  - id: kpi.agriculture.mandi_arrival_volume
+    domain: agriculture_commodity_prices
+    name: Total Mandi Arrival Volume
+    plain_language_definition: Total physical tonnage or quintals of an agricultural crop arriving at wholesale markets during a period.
+    formula: SUM(arrival_quantity_tonnes)
+    required_column_roles:
+      - measure:arrival_quantity_tonnes
+      - dimension:commodity
+    format_hint: decimal
+    needs_human_review: true
+
+  - id: kpi.agriculture.harvest_yield_per_hectare
+    domain: agriculture_commodity_prices
+    name: Harvest Yield per Hectare
+    plain_language_definition: Crop production efficiency measured as total harvested output weight divided by total cultivated area in hectares.
+    formula: DIVIDE(SUM(production_tonnes), SUM(area_hectares), 0)
+    required_column_roles:
+      - measure:production_tonnes
+      - measure:area_hectares
+    format_hint: decimal
+    needs_human_review: true
+

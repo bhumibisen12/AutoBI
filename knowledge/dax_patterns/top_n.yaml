@@ -1,0 +1,27 @@
+pattern_family: top_n
+patterns:
+  - id: dax.top_n.top_n_contribution
+    pattern_family: top_n
+    name: Top N Contribution (TOPN + KEEPFILTERS)
+    plain_language_definition: Computes the total measure value contributed strictly by the top N highest-performing categories (for example, Top 5 products or Top 10 customers).
+    dax_template: |
+      Top {N} {EntityName} {MeasureName} =
+      CALCULATE(
+          [{BaseMeasure}],
+          KEEPFILTERS(
+              TOPN(
+                  {N},
+                  ALLSELECTED( '{DimTable}'[{CategoryColumn}] ),
+                  [{BaseMeasure}],
+                  DESC
+              )
+          )
+      )
+    sql_verification_pattern: "SELECT SUM(cat_total) FROM (SELECT SUM(val) AS cat_total FROM {FactTable} GROUP BY cat ORDER BY cat_total DESC LIMIT {N})"
+    required_column_roles:
+      - measure
+      - dimension
+    pitfalls:
+      - Wrap TOPN in KEEPFILTERS so the measure respects any row-level category filters in matrix or bar visuals.
+    needs_human_review: true
+

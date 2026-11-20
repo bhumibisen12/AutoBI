@@ -1,0 +1,26 @@
+pattern_family: ranking
+patterns:
+  - id: dax.ranking.rankx_dense
+    pattern_family: ranking
+    name: Category Ranking with RANKX
+    plain_language_definition: Assigns a 1-based dense rank to each visible category (such as product or region) ordered from highest to lowest measure value.
+    dax_template: |
+      {EntityName} Rank =
+      IF(
+          ISINSCOPE( '{DimTable}'[{CategoryColumn}] ),
+          RANKX(
+              ALLSELECTED( '{DimTable}'[{CategoryColumn}] ),
+              [{BaseMeasure}],
+              ,
+              DESC,
+              DENSE
+          )
+      )
+    sql_verification_pattern: "SELECT cat, DENSE_RANK() OVER (ORDER BY SUM(val) DESC) FROM {FactTable} GROUP BY cat"
+    required_column_roles:
+      - measure
+      - dimension
+    pitfalls:
+      - Guard RANKX with ISINSCOPE so grand-total rows display BLANK instead of rank 1.
+    needs_human_review: true
+

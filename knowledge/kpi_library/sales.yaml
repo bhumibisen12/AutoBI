@@ -1,0 +1,55 @@
+domain: sales
+kpis:
+  - id: kpi.sales.total_revenue
+    domain: sales
+    name: Total Revenue
+    plain_language_definition: Total money earned from completed sales orders before deducting product costs or expenses.
+    formula: SUM(revenue)
+    required_column_roles:
+      - measure:revenue
+    format_hint: currency
+    needs_human_review: true
+
+  - id: kpi.sales.gross_profit
+    domain: sales
+    name: Gross Profit
+    plain_language_definition: Dollar profit remaining from sales revenue after subtracting the direct cost of goods sold.
+    formula: SUM(revenue) - SUM(cost)
+    required_column_roles:
+      - measure:revenue
+      - measure:cost
+    format_hint: currency
+    needs_human_review: true
+
+  - id: kpi.sales.gross_margin_pct
+    domain: sales
+    name: Gross Margin %
+    plain_language_definition: Share of sales revenue kept as gross profit, expressed as a percentage of total revenue.
+    formula: DIVIDE(SUM(revenue) - SUM(cost), SUM(revenue), 0)
+    required_column_roles:
+      - measure:revenue
+      - measure:cost
+    format_hint: percent
+    needs_human_review: true
+
+  - id: kpi.sales.average_order_value
+    domain: sales
+    name: Average Order Value (AOV)
+    plain_language_definition: Average revenue generated per unique sales order placed by customers.
+    formula: DIVIDE(SUM(revenue), DISTINCTCOUNT(order_id), 0)
+    required_column_roles:
+      - measure:revenue
+      - id:order_id
+    format_hint: currency
+    needs_human_review: true
+
+  - id: kpi.sales.units_sold
+    domain: sales
+    name: Total Units Sold
+    plain_language_definition: Total quantity of product units sold across all orders in the selected period.
+    formula: SUM(quantity)
+    required_column_roles:
+      - measure:quantity
+    format_hint: integer
+    needs_human_review: true
+

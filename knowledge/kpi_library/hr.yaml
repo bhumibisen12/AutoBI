@@ -1,0 +1,43 @@
+domain: hr
+kpis:
+  - id: kpi.hr.headcount
+    domain: hr
+    name: Active Headcount
+    plain_language_definition: Total count of unique employees currently employed in the organization or department.
+    formula: DISTINCTCOUNT(employee_id)
+    required_column_roles:
+      - id:employee_id
+    format_hint: integer
+    needs_human_review: true
+
+  - id: kpi.hr.attrition_rate
+    domain: hr
+    name: Employee Attrition Rate
+    plain_language_definition: Percentage of employees who left the company during the selected period relative to total headcount.
+    formula: DIVIDE(COUNTROWS(FILTER(employees, attrition_flag = TRUE)), DISTINCTCOUNT(employee_id), 0)
+    required_column_roles:
+      - id:employee_id
+      - dimension:attrition_flag
+    format_hint: percent
+    needs_human_review: true
+
+  - id: kpi.hr.average_base_salary
+    domain: hr
+    name: Average Base Salary
+    plain_language_definition: Mean annual base compensation paid per employee across a department, role level, or company.
+    formula: AVERAGE(base_salary)
+    required_column_roles:
+      - measure:base_salary
+    format_hint: currency
+    needs_human_review: true
+
+  - id: kpi.hr.average_performance_rating
+    domain: hr
+    name: Average Performance Rating
+    plain_language_definition: Mean employee performance review score within the selected team or review cycle.
+    formula: AVERAGE(performance_rating)
+    required_column_roles:
+      - measure:performance_rating
+    format_hint: decimal
+    needs_human_review: true
+

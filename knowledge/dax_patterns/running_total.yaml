@@ -1,0 +1,25 @@
+pattern_family: running_total
+patterns:
+  - id: dax.running_total.cumulative_to_date
+    pattern_family: running_total
+    name: Cumulative Running Total Over Time
+    plain_language_definition: Accumulates a measure continuously from the start of the selected time horizon up through the latest date in the current filter context.
+    dax_template: |
+      {MeasureName} Running Total =
+      VAR MaxVisibleDate = MAX( 'dim_date'[date] )
+      RETURN
+      CALCULATE(
+          [{BaseMeasure}],
+          FILTER(
+              ALLSELECTED( 'dim_date'[date] ),
+              'dim_date'[date] <= MaxVisibleDate
+          )
+      )
+    sql_verification_pattern: "SELECT dt, SUM(SUM(val)) OVER (ORDER BY dt ROWS UNBOUNDED PRECEDING) FROM {FactTable} GROUP BY dt"
+    required_column_roles:
+      - measure
+      - date:dim_date
+    pitfalls:
+      - Always filter on 'dim_date'[date] with ALLSELECTED so external slicers stay respected while accumulating across time.
+    needs_human_review: true
+
